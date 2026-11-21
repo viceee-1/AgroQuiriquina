@@ -5,21 +5,23 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.agroquiriquina.R
 import com.example.agroquiriquina.databinding.FragmentRecoverPasswordBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class RecoverPasswordFragment : Fragment() {
 
     private var _binding: FragmentRecoverPasswordBinding? = null
     private val binding get() = _binding!!
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRecoverPasswordBinding.inflate(inflater, container, false)
+        auth = FirebaseAuth.getInstance()
         return binding.root
     }
 
@@ -33,13 +35,16 @@ class RecoverPasswordFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // Muestra mensaje azul del mockup: "Revisa tu bandeja de entrada!"
-            binding.tvInboxNotice.visibility = View.VISIBLE
-
-            // Simulación de redirección tras validar código/enlace
-            binding.tvInboxNotice.setOnClickListener {
-                findNavController().navigate(R.id.action_recoverPasswordFragment_to_resetPasswordFragment)
-            }
+            binding.btnSendRecovery.isEnabled = false
+            auth.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    binding.btnSendRecovery.isEnabled = true
+                    binding.tvInboxNotice.visibility = View.VISIBLE
+                }
+                .addOnFailureListener { e ->
+                    binding.btnSendRecovery.isEnabled = true
+                    Toast.makeText(requireContext(), "Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                }
         }
     }
 

@@ -6,7 +6,7 @@ plugins {
 android {
     namespace = "com.example.agroquiriquina"
     compileSdk {
-        version = release(35)
+        version = release(37)
     }
 
     defaultConfig {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="agro_green">#2E9B54</color>
+    <color name="agro_green_dark">#1F6F3B</color>
+    <color name="agro_blue_link">#1E88E5</color>
+    <color name="agro_text_primary">#1A1A1A</color>
+    <color name="agro_text_secondary">#666666</color>
+    <color name="agro_border">#8C8C8C</color>
+    <color name="agro_avatar_bg">#D9D9D9</color>
+    <color name="white">#FFFFFF</color>
+</resources>

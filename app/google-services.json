@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605397091188",
+    "project_id": "agroquiriquina-bf038",
+    "storage_bucket": "agroquiriquina-bf038.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605397091188:android:312ff675f3b7006affe221",
+        "android_client_info": {
+          "package_name": "com.example.agroquiriquina"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCio1T7V8X_TOBAGzzS1nKIX6BJKdmzyX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
